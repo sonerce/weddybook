@@ -2,16 +2,17 @@
 
 import React from 'react';
 
+import { ToastProvider } from '@/components/ui/toast-provider';
+
 interface ProvidersProps {
   children: React.ReactNode;
 }
 
 export function Providers({ children }: ProvidersProps) {
   return (
-    <div>
-      {/* Theme provider placeholder - will be expanded with context providers */}
-      {children}
-    </div>
+    <ThemeProvider>
+      <ToastProvider>{children}</ToastProvider>
+    </ThemeProvider>
   );
 }
 
@@ -24,9 +25,9 @@ export const ThemeContext = React.createContext({
 export function ThemeProvider({ children }: ProvidersProps) {
   const [theme, setTheme] = React.useState('light');
 
-  const toggleTheme = () => {
+  const toggleTheme = React.useCallback(() => {
     setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
+  }, []);
 
   React.useEffect(() => {
     // Apply theme class to document
