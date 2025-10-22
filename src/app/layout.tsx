@@ -8,6 +8,7 @@ import {
 
 import './globals.css';
 
+import { Navigation } from '@/components/layout/navigation';
 import { Providers } from '@/components/providers';
 
 const inter = Inter({
@@ -49,9 +50,22 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${playfairDisplay.variable} ${dancingScript.variable} ${crimsonText.variable} font-sans antialiased`}
+        className={`${inter.variable} ${playfairDisplay.variable} ${dancingScript.variable} ${crimsonText.variable} font-sans antialiased bg-gradient-to-br from-wedding-cream via-white to-wedding-champagne text-wedding-secondary-900`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-wedding-primary-500 focus:px-5 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+          >
+            Skip to main content
+          </a>
+          <div className="flex min-h-screen flex-col">
+            <Navigation />
+            <main id="main-content" className="flex-1">
+              {children}
+            </main>
+          </div>
+        </Providers>
       </body>
     </html>
   );
