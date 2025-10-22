@@ -1,0 +1,12 @@
+# Bu proje sadece Python standart kütüphanelerini kullanır
+# Harici bağımlılık yoktur
+
+# Python 3.6+ gereklidir:
+# - socket (ağ bağlantıları için)
+# - threading (çoklu thread desteği için)
+# - concurrent.futures (ThreadPoolExecutor için)
+# - ipaddress (IP doğrulama için)
+# - argparse (komut satırı argümanları için)
+# - sys, time, datetime (sistem fonksiyonları için)
+
+# Kurulum gerektirmez - doğrudan çalıştırılabilir
